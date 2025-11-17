@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,111 +6,162 @@
 <title>Happy 16th Birthday Beth 💖</title>
 
 <style>
-html, body {
+/* ---------------- GENERAL RESET ---------------- */
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    height: 100%;
-    overflow-x: hidden;
-    background: #ffe0ec;
+    box-sizing: border-box;
 }
 
-/* Background slideshow */
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: #ffe0ec;
+    overflow-x: hidden;
+}
+
+/* ---------------- BACKGROUND SLIDESHOW ---------------- */
 .slideshow {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     z-index: -1;
-    animation: slide 20s infinite;
     background-size: cover;
     background-position: center;
+    animation: slidefade 20s infinite;
 }
 
-@keyframes slide {
-    0%   { background-image: url("images/bg1.jpg"); }
-    33%  { background-image: url("images/bg2.jpg"); }
-    66%  { background-image: url("images/bg3.jpg"); }
-    100% { background-image: url("images/bg1.jpg"); }
+@keyframes slidefade {
+    0%   { background-image: url("images/bg1.jpg"); transform: scale(1); }
+    25%  { background-image: url("images/bg2.jpg"); transform: scale(1.05); }
+    50%  { background-image: url("images/bg3.jpg"); transform: scale(1.1); }
+    75%  { background-image: url("images/bg1.jpg"); transform: scale(1.05); }
+    100% { background-image: url("images/bg1.jpg"); transform: scale(1); }
+    0%,25%,50%,75%,100% { transition: all 2s ease-in-out; }
 }
 
+/* ---------------- CONTAINER ---------------- */
 .container {
     text-align: center;
-    padding: 60px 20px 40px 20px;
+    padding: 50px 20px;
     color: white;
     text-shadow: 0 0 10px black;
     max-width: 800px;
     margin: auto;
 }
 
+/* ---------------- MAIN PHOTO ---------------- */
 .main-photo {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid pink;
-    box-shadow: 0 0 20px pink;
+    box-shadow: 0 0 30px pink;
+    animation: float 3s ease-in-out infinite;
 }
 
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ---------------- BUTTON ---------------- */
 button {
     margin-top: 30px;
     background: pink;
     color: white;
     border: none;
-    padding: 15px 30px;
-    font-size: 20px;
-    border-radius: 40px;
+    padding: 15px 40px;
+    font-size: 22px;
+    border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 0 15px pink;
+    box-shadow: 0 0 20px hotpink;
 }
 
 button:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 25px hotpink;
+    box-shadow: 0 0 35px hotpink;
 }
 
-/* Scrollable romantic letter */
+/* ---------------- MESSAGE BOX ---------------- */
 #message {
     display: none;
-    background: rgba(255, 192, 203, 0.85);
+    margin-top: 40px;
+    font-size: 22px;
+    background: rgba(255, 192, 203, 0.95);
     padding: 25px;
-    border-radius: 20px;
+    border-radius: 25px;
     color: black;
     text-align: left;
-    font-size: 22px;
     line-height: 1.6;
     max-width: 700px;
-    margin: 40px auto 80px auto;
-    height: 400px; /* visible area */
-    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 400px; 
+    overflow-y: auto;
     position: relative;
+    box-shadow: 0 0 30px pink;
 }
 
-#message p {
-    position: absolute;
-    bottom: -100%;
-    width: 100%;
-    animation: scrollUp 40s linear forwards;
+/* ---------------- STYLE FOR "16th" ---------------- */
+h1 span {
+    font-size: 3.5em;
+    color: #ff1493;
+    font-weight: bold;
+    text-shadow: 0 0 20px pink;
+    animation: shimmer 2s ease-in-out infinite;
 }
 
-/* Smooth scroll effect */
-@keyframes scrollUp {
-    from { bottom: -100%; }
-    to   { bottom: 0%; }
+@keyframes shimmer {
+    0% { text-shadow: 0 0 20px pink, 0 0 30px hotpink; }
+    50% { text-shadow: 0 0 30px hotpink, 0 0 40px #ff69b4; }
+    100% { text-shadow: 0 0 20px pink, 0 0 30px hotpink; }
 }
 
+/* ---------------- HEARTS ---------------- */
+.heart {
+    position: fixed;
+    font-size: 20px;
+    color: #ff69b4;
+    animation: floatHeart 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity:1;}
+    100% { transform: translateY(-10vh) scale(1) rotate(360deg); opacity:0;}
+}
+
+/* ---------------- SPARKLES ---------------- */
+.sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleAnim 4s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes sparkleAnim {
+    0% { transform: translate(0, 0) scale(0.5); opacity:1; }
+    50% { transform: translate(100px, -200px) scale(1); opacity:0.5; }
+    100% { transform: translate(0, -400px) scale(0.5); opacity:0; }
+}
+
+/* ---------------- CONFETTI ---------------- */
 canvas {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     pointer-events: none;
     z-index: 9999;
 }
 </style>
 </head>
-
 <body>
 
 <div class="slideshow"></div>
@@ -121,8 +172,8 @@ canvas {
 
 <div class="container">
     <img src="images/main.jpg" class="main-photo">
-    <h1>Happy 16th Birthday Beth Wangui 🎀</h1>
-    <h2>Turning 16 on 18th November 🎉</h2>
+    <h1>Happy <span>16th</span> Birthday Beth Wangui 🎀</h1>
+    <h2>Turning <span>16</span> on 18th November 🎉</h2>
 
     <button onclick="showMessage()">Tap Here 💖</button>
 
@@ -149,14 +200,17 @@ canvas {
 <canvas id="confetti"></canvas>
 
 <script>
+/* ---------------- SHOW MESSAGE ---------------- */
 function showMessage() {
     document.getElementById("message").style.display = "block";
     document.querySelector("button").style.display = "none";
     document.getElementById("bgMusic").play();
     launchConfetti();
+    spawnHearts();
+    spawnSparkles();
 }
 
-// Confetti effect
+/* ---------------- CONFETTI ---------------- */
 function launchConfetti() {
     const canvas = document.getElementById('confetti');
     const ctx = canvas.getContext('2d');
@@ -164,58 +218,82 @@ function launchConfetti() {
     canvas.height = window.innerHeight;
 
     const pieces = [];
-    const colors = ['#ff6fa3', '#ff9fc2', '#ffc0cb', '#ff1493', '#ff69b4'];
-
-    for (let i = 0; i < 150; i++) {
+    const colors = ['#ff6fa3','#ff9fc2','#ffc0cb','#ff1493','#ff69b4'];
+    for (let i=0;i<200;i++){
         pieces.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height - canvas.height,
-            r: Math.random() * 6 + 4,
-            d: Math.random() * 50 + 10,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            tilt: Math.random() * 10 - 10,
-            tiltAngleIncrement: Math.random() * 0.07 + 0.05,
-            tiltAngle: 0
+            x: Math.random()*canvas.width,
+            y: Math.random()*canvas.height - canvas.height,
+            r: Math.random()*6+4,
+            d: Math.random()*50+10,
+            color: colors[Math.floor(Math.random()*colors.length)],
+            tilt: Math.random()*10-10,
+            tiltAngleIncrement: Math.random()*0.07+0.05,
+            tiltAngle:0
         });
     }
 
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < pieces.length; i++) {
+    function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(let i=0;i<pieces.length;i++){
             let p = pieces[i];
             ctx.beginPath();
-            ctx.lineWidth = p.r;
-            ctx.strokeStyle = p.color;
-            ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
-            ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+            ctx.lineWidth=p.r;
+            ctx.strokeStyle=p.color;
+            ctx.moveTo(p.x+p.tilt+p.r/2,p.y);
+            ctx.lineTo(p.x+p.tilt,p.y+p.tilt+p.r/2);
             ctx.stroke();
         }
         update();
     }
 
-    function update() {
-        for (let i = 0; i < pieces.length; i++) {
-            let p = pieces[i];
-            p.tiltAngle += p.tiltAngleIncrement;
-            p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
-            p.tilt = Math.sin(p.tiltAngle) * 15;
-            if (p.y > canvas.height) {
-                p.y = -20;
-                p.x = Math.random() * canvas.width;
+    function update(){
+        for(let i=0;i<pieces.length;i++){
+            let p=pieces[i];
+            p.tiltAngle+=p.tiltAngleIncrement;
+            p.y += (Math.cos(p.d)+3+p.r/2)/2;
+            p.tilt=Math.sin(p.tiltAngle)*15;
+            if(p.y>canvas.height){
+                p.y=-20;
+                p.x=Math.random()*canvas.width;
             }
         }
     }
 
-    function animate() {
+    function animate(){
         draw();
         requestAnimationFrame(animate);
     }
 
     animate();
 }
+
+/* ---------------- HEARTS ---------------- */
+function spawnHearts(){
+    for(let i=0;i<30;i++){
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random()*90+'vw';
+        heart.style.fontSize = (15 + Math.random()*25)+'px';
+        heart.style.animationDuration = (3 + Math.random()*3)+'s';
+        document.body.appendChild(heart);
+        setTimeout(()=>{heart.remove()},6000);
+    }
+}
+
+/* ---------------- SPARKLES ---------------- */
+function spawnSparkles(){
+    for(let i=0;i<20;i++){
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('sparkle');
+        sparkle.style.left = Math.random()*100+'vw';
+        sparkle.style.top = Math.random()*100+'vh';
+        sparkle.style.animationDuration = (3 + Math.random()*3)+'s';
+        document.body.appendChild(sparkle);
+        setTimeout(()=>{sparkle.remove()},5000);
+    }
+}
 </script>
 
 </body>
 </html>
-
-
