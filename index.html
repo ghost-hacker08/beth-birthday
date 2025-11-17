@@ -1,107 +1,133 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Beth ❤️</title>
+<title>Happy 16th Birthday Beth 💖</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-    }
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+    background: #ffe0ec;
+}
 
-    /* Background slideshow */
-    .slideshow {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        animation: slide 20s infinite;
-        background-size: cover;
-        background-position: center;
-    }
+/* Background slideshow */
+.slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: slide 20s infinite;
+    background-size: cover;
+    background-position: center;
+}
 
-    @keyframes slide {
-        0%   { background-image: url("images/bg1.jpg"); }
-        33%  { background-image: url("images/bg2.jpg"); }
-        66%  { background-image: url("images/bg3.jpg"); }
-        100% { background-image: url("images/bg1.jpg"); }
-    }
+@keyframes slide {
+    0%   { background-image: url("images/bg1.jpg"); }
+    33%  { background-image: url("images/bg2.jpg"); }
+    66%  { background-image: url("images/bg3.jpg"); }
+    100% { background-image: url("images/bg1.jpg"); }
+}
 
-    .container {
-        text-align: center;
-        margin-top: 80px;
-        color: white;
-        text-shadow: 0 0 10px black;
-    }
+.container {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    color: white;
+    text-shadow: 0 0 10px black;
+    max-width: 800px;
+    margin: auto;
+}
 
-    .main-photo {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 5px solid pink;
-        box-shadow: 0 0 20px pink;
-    }
+.main-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid pink;
+    box-shadow: 0 0 20px pink;
+}
 
-    button {
-        margin-top: 30px;
-        background: pink;
-        color: white;
-        border: none;
-        padding: 15px 30px;
-        font-size: 20px;
-        border-radius: 40px;
-        cursor: pointer;
-        transition: 0.3s;
-        box-shadow: 0 0 15px pink;
-    }
+button {
+    margin-top: 30px;
+    background: pink;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px pink;
+}
 
-    button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 25px hotpink;
-    }
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px hotpink;
+}
 
-    #message {
-        display: none;
-        margin-top: 40px;
-        font-size: 25px;
-        background: rgba(255, 192, 203, 0.7);
-        padding: 20px;
-        border-radius: 20px;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        color: black;
-        text-shadow: none;
-    }
+/* Scrollable romantic letter */
+#message {
+    display: none;
+    background: rgba(255, 192, 203, 0.85);
+    padding: 25px;
+    border-radius: 20px;
+    color: black;
+    text-align: left;
+    font-size: 22px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 40px auto 80px auto;
+    height: 400px; /* visible area */
+    overflow: hidden;
+    position: relative;
+}
+
+#message p {
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    animation: scrollUp 40s linear forwards;
+}
+
+/* Smooth scroll effect */
+@keyframes scrollUp {
+    from { bottom: -100%; }
+    to   { bottom: 0%; }
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
 </style>
 </head>
 
 <body>
 
-<!-- Background slideshow -->
 <div class="slideshow"></div>
 
-<!-- Music autoplay -->
 <audio id="bgMusic" autoplay loop>
     <source src="music/birthday.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
     <img src="images/main.jpg" class="main-photo">
-
-    <h1>Happy Birthday Beth Wangui 🎀</h1>
+    <h1>Happy 16th Birthday Beth Wangui 🎀</h1>
     <h2>Turning 16 on 18th November 🎉</h2>
 
     <button onclick="showMessage()">Tap Here 💖</button>
 
     <div id="message">
-    <p>
+        <p>
         My dearest Beth,  
         Today you turn 16 — a day as special as your heart, as beautiful as your smile, and as radiant as your soul.  
         I wish I could be by your side right now to hug you tight and whisper how much I love you, but even if I am not there physically, my heart is with you every single second.  
@@ -113,14 +139,83 @@
         Even when we are apart, remember that you are always in my thoughts, my dreams, and my prayers. I hope today is filled with laughter, joy, and the warm feeling of being loved — because you deserve nothing less.  
 
         Happy 16th birthday, my angel. 💖 I love you more than words can express, and I will always be yours.  
-    </p>
+
+        Forever and always,  
+        Your loving boyfriend. ❤️
+        </p>
+    </div>
 </div>
+
+<canvas id="confetti"></canvas>
 
 <script>
 function showMessage() {
     document.getElementById("message").style.display = "block";
+    document.querySelector("button").style.display = "none";
+    document.getElementById("bgMusic").play();
+    launchConfetti();
+}
+
+// Confetti effect
+function launchConfetti() {
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const pieces = [];
+    const colors = ['#ff6fa3', '#ff9fc2', '#ffc0cb', '#ff1493', '#ff69b4'];
+
+    for (let i = 0; i < 150; i++) {
+        pieces.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height - canvas.height,
+            r: Math.random() * 6 + 4,
+            d: Math.random() * 50 + 10,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            tilt: Math.random() * 10 - 10,
+            tiltAngleIncrement: Math.random() * 0.07 + 0.05,
+            tiltAngle: 0
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < pieces.length; i++) {
+            let p = pieces[i];
+            ctx.beginPath();
+            ctx.lineWidth = p.r;
+            ctx.strokeStyle = p.color;
+            ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+            ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+            ctx.stroke();
+        }
+        update();
+    }
+
+    function update() {
+        for (let i = 0; i < pieces.length; i++) {
+            let p = pieces[i];
+            p.tiltAngle += p.tiltAngleIncrement;
+            p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+            p.tilt = Math.sin(p.tiltAngle) * 15;
+            if (p.y > canvas.height) {
+                p.y = -20;
+                p.x = Math.random() * canvas.width;
+            }
+        }
+    }
+
+    function animate() {
+        draw();
+        requestAnimationFrame(animate);
+    }
+
+    animate();
 }
 </script>
 
 </body>
 </html>
+
+
