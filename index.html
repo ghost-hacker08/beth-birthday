@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Beth ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    /* Background slideshow */
+    .slideshow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        animation: slide 20s infinite;
+        background-size: cover;
+        background-position: center;
+    }
+
+    @keyframes slide {
+        0%   { background-image: url("images/bg1.jpg"); }
+        33%  { background-image: url("images/bg2.jpg"); }
+        66%  { background-image: url("images/bg3.jpg"); }
+        100% { background-image: url("images/bg1.jpg"); }
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 80px;
+        color: white;
+        text-shadow: 0 0 10px black;
+    }
+
+    .main-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid pink;
+        box-shadow: 0 0 20px pink;
+    }
+
+    button {
+        margin-top: 30px;
+        background: pink;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 20px;
+        border-radius: 40px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 0 15px pink;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px hotpink;
+    }
+
+    #message {
+        display: none;
+        margin-top: 40px;
+        font-size: 25px;
+        background: rgba(255, 192, 203, 0.7);
+        padding: 20px;
+        border-radius: 20px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        color: black;
+        text-shadow: none;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Background slideshow -->
+<div class="slideshow"></div>
+
+<!-- Music autoplay -->
+<audio id="bgMusic" autoplay loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <img src="images/main.jpg" class="main-photo">
+
+    <h1>Happy Birthday Beth Wangui 🎀</h1>
+    <h2>Turning 16 on 18th November 🎉</h2>
+
+    <button onclick="showMessage()">Tap Here 💖</button>
+
+    <div id="message">
+    <p>
+        My dearest Beth,  
+        Today you turn 16 — a day as special as your heart, as beautiful as your smile, and as radiant as your soul.  
+        I wish I could be by your side right now to hug you tight and whisper how much I love you, but even if I am not there physically, my heart is with you every single second.  
+
+        Beth, you are the most amazing person I have ever met. Every time I think of you, I feel my heart swell with happiness, gratitude, and love. You make my days brighter, my worries lighter, and my life so much better just by being you.  
+
+        On this special day, I want you to know that my love for you is endless. I admire everything about you — your smile, your laughter, your kindness, and the way your eyes light up when you dream about your future. You are precious to me, and I promise to cherish you always, to support you, and to love you more than anyone else could.  
+
+        Even when we are apart, remember that you are always in my thoughts, my dreams, and my prayers. I hope today is filled with laughter, joy, and the warm feeling of being loved — because you deserve nothing less.  
+
+        Happy 16th birthday, my angel. 💖 I love you more than words can express, and I will always be yours.  
+    </p>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("message").style.display = "block";
+}
+</script>
+
+</body>
+</html>
